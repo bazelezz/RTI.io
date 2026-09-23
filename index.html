@@ -1,0 +1,1785 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Пейнтбол-Лазертаг Клуб РТИ — активный отдых в Екатеринбурге | Пейнтбол, лазертаг, гидробол</title>
+  <meta name="description" content="Один из самых популярных клубов активного отдыха рядом с центром Екатеринбурга. Пейнтбол, лазертаг, гидробол. Открытая площадка 50×50, тёплые беседки, бесплатная парковка. Акция на день рождения!">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ---------- СБРОС И БАЗОВЫЕ ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0d0f0e;
+      color: #e8ece8;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ---------- ЦВЕТОВАЯ ПАЛИТРА: СПОРТИВНЫЙ МИЛИТАРИ ---------- */
+    :root {
+      --bg-dark: #0d0f0e;
+      --bg-card: #141816;
+      --bg-elevated: #1a1f1c;
+      --accent-olive: #6b7d3a;
+      --accent-olive-light: #8a9e4a;
+      --accent-olive-dark: #4a5a28;
+      --accent-orange: #d97b2b;
+      --accent-orange-light: #e89a4a;
+      --accent-sand: #c4b998;
+      --accent-sand-light: #ddd4b8;
+      --text-primary: #f0f2ee;
+      --text-secondary: #9aa89a;
+      --text-muted: #6a7a6a;
+      --border-subtle: #242a26;
+      --border-olive: rgba(107, 125, 58, 0.4);
+      --shadow-glow: 0 0 40px rgba(107, 125, 58, 0.12);
+      --radius-card: 16px;
+      --radius-btn: 6px;
+    }
+
+    /* ---------- ТИПОГРАФИКА ---------- */
+    h1, h2, h3, h4 {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      line-height: 1.1;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(2.8rem, 7vw, 5.2rem);
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      line-height: 1.05;
+    }
+
+    h2 {
+      font-size: clamp(1.9rem, 4vw, 2.8rem);
+      margin-bottom: 16px;
+      letter-spacing: 0.03em;
+    }
+
+    h3 {
+      font-size: clamp(1.15rem, 2vw, 1.5rem);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
+    .section-label {
+      display: inline-block;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--accent-olive-light);
+      background: rgba(107, 125, 58, 0.12);
+      border: 1px solid var(--border-olive);
+      margin-bottom: 18px;
+      padding: 7px 16px;
+      border-radius: 3px;
+    }
+
+    .section-label.orange {
+      color: var(--accent-orange-light);
+      background: rgba(217, 123, 43, 0.1);
+      border-color: rgba(217, 123, 43, 0.35);
+    }
+
+    /* ---------- ДЕКОРАТИВНЫЕ ЭЛЕМЕНТЫ ---------- */
+    .divider-stripe {
+      height: 3px;
+      width: 60px;
+      background: var(--accent-olive);
+      margin-bottom: 20px;
+      border-radius: 2px;
+    }
+
+    .divider-stripe.orange {
+      background: var(--accent-orange);
+    }
+
+    /* ---------- ХЕДЕР ---------- */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 16px 0;
+      transition: background 0.4s ease, backdrop-filter 0.4s ease, padding 0.3s ease, border-color 0.3s ease;
+      border-bottom: 1px solid transparent;
+    }
+
+    .header.scrolled {
+      background: rgba(13, 15, 14, 0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom-color: var(--border-subtle);
+      padding: 10px 0;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--text-primary);
+      text-transform: uppercase;
+    }
+
+    .logo-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--accent-olive);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      transition: background 0.3s;
+    }
+
+    .logo:hover .logo-icon {
+      background: var(--accent-orange);
+    }
+
+    .logo span {
+      color: var(--accent-olive-light);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-family: 'Oswald', sans-serif;
+    }
+
+    .nav-links a {
+      transition: color 0.2s;
+      position: relative;
+      padding-bottom: 4px;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-orange);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent-orange);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .header-phone {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600;
+      font-size: 0.85rem;
+      letter-spacing: 0.06em;
+      color: #0d0f0e;
+      background: var(--accent-olive-light);
+      padding: 12px 22px;
+      border-radius: var(--radius-btn);
+      transition: all 0.3s;
+      white-space: nowrap;
+      border: none;
+      cursor: pointer;
+      text-transform: uppercase;
+    }
+
+    .header-phone:hover {
+      background: var(--accent-orange);
+      color: #0d0f0e;
+    }
+
+    .header-phone svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+
+    .burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .burger span {
+      width: 26px;
+      height: 2px;
+      background: var(--accent-olive-light);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 0 80px;
+      overflow: hidden;
+      background: var(--bg-dark);
+    }
+
+    /* Тактический фон */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(rgba(107, 125, 58, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(107, 125, 58, 0.05) 1px, transparent 1px);
+      background-size: 50px 50px;
+      mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 20%, transparent 75%);
+      pointer-events: none;
+    }
+
+    /* Диагональная полоса */
+    .hero-accent-line {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 45%;
+      height: 100%;
+      background: linear-gradient(135deg, transparent 40%, rgba(107, 125, 58, 0.06) 40%, rgba(107, 125, 58, 0.06) 60%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-accent-line-2 {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 30%;
+      height: 100%;
+      background: linear-gradient(135deg, transparent 40%, rgba(217, 123, 43, 0.04) 40%, rgba(217, 123, 43, 0.04) 55%, transparent 55%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 820px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 20px;
+      background: rgba(107, 125, 58, 0.15);
+      border: 1px solid var(--border-olive);
+      border-radius: 4px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent-olive-light);
+      margin-bottom: 28px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .hero-badge .dot {
+      width: 8px;
+      height: 8px;
+      background: var(--accent-orange);
+      border-radius: 50%;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(1.4); }
+    }
+
+    .hero h1 {
+      margin-bottom: 28px;
+      color: var(--text-primary);
+    }
+
+    .hero h1 .accent {
+      color: var(--accent-olive-light);
+    }
+
+    .hero h1 .accent-orange {
+      color: var(--accent-orange);
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1rem, 1.4vw, 1.15rem);
+      color: var(--text-secondary);
+      max-width: 620px;
+      margin-bottom: 40px;
+      line-height: 1.8;
+      border-left: 3px solid var(--accent-olive);
+      padding-left: 20px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 56px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 34px;
+      border-radius: var(--radius-btn);
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--accent-olive);
+      color: #f0f2ee;
+      border: 1px solid var(--accent-olive);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-olive-light);
+      border-color: var(--accent-olive-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(107, 125, 58, 0.4);
+    }
+
+    .btn-orange {
+      background: var(--accent-orange);
+      color: #0d0f0e;
+      border: 1px solid var(--accent-orange);
+    }
+
+    .btn-orange:hover {
+      background: var(--accent-orange-light);
+      border-color: var(--accent-orange-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(217, 123, 43, 0.4);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text-primary);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent-olive-light);
+      background: rgba(107, 125, 58, 0.08);
+      transform: translateY(-2px);
+    }
+
+    .btn svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 48px;
+    }
+
+    .hero-stat {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      position: relative;
+    }
+
+    .hero-stat:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: -24px;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: var(--border-subtle);
+    }
+
+    .hero-stat-value {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: 0.03em;
+    }
+
+    .hero-stat-value .accent {
+      color: var(--accent-olive-light);
+    }
+
+    .hero-stat-value .accent-orange {
+      color: var(--accent-orange);
+    }
+
+    .hero-stat-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* ---------- БЕГУЩАЯ СТРОКА ---------- */
+    .marquee {
+      background: var(--accent-olive-dark);
+      padding: 14px 0;
+      overflow: hidden;
+      position: relative;
+      border-top: 1px solid var(--accent-olive);
+      border-bottom: 1px solid var(--accent-olive);
+    }
+
+    .marquee-inner {
+      display: flex;
+      animation: marqueeScroll 30s linear infinite;
+      white-space: nowrap;
+    }
+
+    .marquee-item {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--accent-sand-light);
+      padding: 0 28px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .marquee-item .star {
+      color: var(--accent-orange);
+      font-size: 0.8rem;
+    }
+
+    @keyframes marqueeScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ---------- СЕКЦИИ ОБЩИЕ ---------- */
+    section {
+      padding: 100px 0;
+      position: relative;
+    }
+
+    .section-header {
+      max-width: 680px;
+      margin-bottom: 56px;
+    }
+
+    .section-header p {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-top: 12px;
+    }
+
+    /* ---------- ИГРЫ ---------- */
+    .games-section {
+      background: var(--bg-dark);
+    }
+
+    .games-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .game-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-card);
+      padding: 36px 30px;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .game-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--accent-olive);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+
+    .game-card.orange::before {
+      background: var(--accent-orange);
+    }
+
+    .game-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .game-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--border-olive);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), var(--shadow-glow);
+    }
+
+    .game-card.orange:hover {
+      border-color: rgba(217, 123, 43, 0.4);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(217, 123, 43, 0.1);
+    }
+
+    .game-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      margin-bottom: 24px;
+      transition: transform 0.3s;
+    }
+
+    .game-icon.olive {
+      background: rgba(107, 125, 58, 0.15);
+      border: 1px solid var(--border-olive);
+    }
+
+    .game-icon.orange {
+      background: rgba(217, 123, 43, 0.12);
+      border: 1px solid rgba(217, 123, 43, 0.35);
+    }
+
+    .game-card:hover .game-icon {
+      transform: scale(1.08) rotate(-4deg);
+    }
+
+    .game-card h3 {
+      margin-bottom: 14px;
+      color: var(--text-primary);
+    }
+
+    .game-card p {
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+      line-height: 1.75;
+      flex: 1;
+    }
+
+    .game-tag {
+      display: inline-block;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 5px 12px;
+      border-radius: 3px;
+      margin-bottom: 18px;
+      width: fit-content;
+    }
+
+    .game-tag.olive {
+      background: rgba(107, 125, 58, 0.15);
+      color: var(--accent-olive-light);
+      border: 1px solid var(--border-olive);
+    }
+
+    .game-tag.orange {
+      background: rgba(217, 123, 43, 0.12);
+      color: var(--accent-orange-light);
+      border: 1px solid rgba(217, 123, 43, 0.35);
+    }
+
+    /* ---------- ТАРИФЫ ---------- */
+    .pricing-section {
+      background: var(--bg-elevated);
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 48px;
+    }
+
+    .price-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-card);
+      padding: 34px 30px;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .price-card.featured {
+      border-color: var(--accent-olive);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .price-card.featured::before {
+      content: 'ХИТ';
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: var(--accent-olive);
+      color: #f0f2ee;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.6rem;
+      font-weight: 700;
+      padding: 5px 16px;
+      letter-spacing: 0.15em;
+      border-radius: 0 0 0 8px;
+    }
+
+    .price-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--border-olive);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), var(--shadow-glow);
+    }
+
+    .price-card.featured:hover {
+      border-color: var(--accent-olive-light);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 50px rgba(107, 125, 58, 0.2);
+    }
+
+    .price-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 26px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .price-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+    }
+
+    .price-icon.olive {
+      background: rgba(107, 125, 58, 0.15);
+      border: 1px solid var(--border-olive);
+    }
+
+    .price-icon.orange {
+      background: rgba(217, 123, 43, 0.12);
+      border: 1px solid rgba(217, 123, 43, 0.35);
+    }
+
+    .price-header h3 {
+      font-size: 1.1rem;
+      color: var(--text-primary);
+    }
+
+    .price-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .price-row:last-child {
+      border-bottom: none;
+    }
+
+    .price-time {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    .price-value {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--accent-olive-light);
+      letter-spacing: 0.02em;
+    }
+
+    .price-card.orange .price-value {
+      color: var(--accent-orange-light);
+    }
+
+    /* ---------- АКЦИЯ ---------- */
+    .promo-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-olive);
+      border-radius: var(--radius-card);
+      padding: 44px 40px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .promo-box::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(107, 125, 58, 0.08), transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .promo-box::after {
+      content: '';
+      position: absolute;
+      bottom: -40%;
+      left: -5%;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(217, 123, 43, 0.06), transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .promo-emoji {
+      font-size: 3.5rem;
+      position: relative;
+      z-index: 1;
+      filter: drop-shadow(0 4px 20px rgba(217, 123, 43, 0.3));
+    }
+
+    .promo-content {
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .promo-content h3 {
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+      color: var(--text-primary);
+    }
+
+    .promo-content p {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--text-secondary);
+      margin-bottom: 6px;
+    }
+
+    .promo-content .highlight {
+      color: var(--accent-orange);
+      font-weight: 700;
+    }
+
+    .promo-cta {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ---------- ИНФРАСТРУКТУРА ---------- */
+    .infra-section {
+      background: var(--bg-dark);
+    }
+
+    .infra-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .infra-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-card);
+      padding: 36px 32px;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .infra-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 100%;
+      background: var(--accent-olive);
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: transform 0.4s;
+    }
+
+    .infra-card.orange::before {
+      background: var(--accent-orange);
+    }
+
+    .infra-card:hover::before {
+      transform: scaleY(1);
+    }
+
+    .infra-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--border-olive);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), var(--shadow-glow);
+    }
+
+    .infra-card.orange:hover {
+      border-color: rgba(217, 123, 43, 0.4);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(217, 123, 43, 0.1);
+    }
+
+    .infra-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 22px;
+      transition: transform 0.3s;
+    }
+
+    .infra-icon.olive {
+      background: rgba(107, 125, 58, 0.15);
+      border: 1px solid var(--border-olive);
+    }
+
+    .infra-icon.orange {
+      background: rgba(217, 123, 43, 0.12);
+      border: 1px solid rgba(217, 123, 43, 0.35);
+    }
+
+    .infra-card:hover .infra-icon {
+      transform: scale(1.08) rotate(-4deg);
+    }
+
+    .infra-card h3 {
+      margin-bottom: 12px;
+      font-size: 1.15rem;
+      color: var(--text-primary);
+    }
+
+    .infra-card p {
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+      line-height: 1.75;
+    }
+
+    /* ---------- КОНТАКТЫ ---------- */
+    .contacts-section {
+      background: var(--bg-elevated);
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .contacts-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 32px;
+    }
+
+    .contact-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-card);
+      padding: 32px 28px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--accent-olive);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s;
+    }
+
+    .contact-card.orange::after {
+      background: var(--accent-orange);
+    }
+
+    .contact-card:hover::after {
+      transform: scaleX(1);
+    }
+
+    .contact-card:hover {
+      border-color: var(--border-olive);
+      transform: translateY(-4px);
+    }
+
+    .contact-card.orange:hover {
+      border-color: rgba(217, 123, 43, 0.4);
+    }
+
+    .contact-card-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+
+    .contact-card-icon.olive {
+      background: rgba(107, 125, 58, 0.15);
+      border: 1px solid var(--border-olive);
+    }
+
+    .contact-card-icon.orange {
+      background: rgba(217, 123, 43, 0.12);
+      border: 1px solid rgba(217, 123, 43, 0.35);
+    }
+
+    .contact-card h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: var(--text-primary);
+      letter-spacing: 0.06em;
+    }
+
+    .contact-card p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .contact-card a {
+      color: var(--accent-olive-light);
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    .contact-card a:hover {
+      color: var(--accent-orange);
+    }
+
+    .map-wrapper {
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      border: 1px solid var(--border-subtle);
+      height: 340px;
+      background: var(--bg-card);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .map-wrapper::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(rgba(107, 125, 58, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(107, 125, 58, 0.04) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    .map-placeholder {
+      text-align: center;
+      color: var(--text-muted);
+      position: relative;
+      z-index: 1;
+    }
+
+    .map-placeholder .emoji {
+      font-size: 3rem;
+      margin-bottom: 12px;
+      filter: drop-shadow(0 4px 20px rgba(107, 125, 58, 0.3));
+    }
+
+    /* ---------- CTA ---------- */
+    .cta-section {
+      padding: 100px 0;
+      background: var(--bg-dark);
+    }
+
+    .cta-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-olive);
+      border-radius: var(--radius-card);
+      padding: 64px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-box::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(107, 125, 58, 0.05) 0%, transparent 60%);
+      animation: rotate 30s linear infinite;
+      pointer-events: none;
+    }
+
+    .cta-box::after {
+      content: '';
+      position: absolute;
+      bottom: -40%;
+      right: -10%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(217, 123, 43, 0.05) 0%, transparent 60%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .cta-box h2 {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 16px;
+      color: var(--text-primary);
+    }
+
+    .cta-box p {
+      position: relative;
+      z-index: 1;
+      color: var(--text-secondary);
+      font-size: 1rem;
+      max-width: 520px;
+      margin: 0 auto 36px;
+      line-height: 1.8;
+    }
+
+    .cta-actions {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+    }
+
+    /* ---------- ФУТЕР ---------- */
+    .footer {
+      padding: 44px 0;
+      border-top: 1px solid var(--border-subtle);
+      background: var(--bg-dark);
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .footer-copy {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 28px;
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-family: 'Oswald', sans-serif;
+    }
+
+    .footer-links a {
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent-orange);
+    }
+
+    /* ---------- АНИМАЦИИ ПРИ СКРОЛЛЕ ---------- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* ---------- АДАПТИВ ---------- */
+    @media (max-width: 1024px) {
+      .games-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .pricing-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .contacts-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(13, 15, 14, 0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        padding: 28px;
+        gap: 22px;
+        border-bottom: 1px solid var(--border-subtle);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .burger {
+        display: flex;
+      }
+
+      .header-phone span {
+        display: none;
+      }
+
+      .header-phone {
+        padding: 12px 16px;
+      }
+
+      .games-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contacts-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .infra-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-stats {
+        gap: 28px;
+      }
+
+      .hero-stat:not(:last-child)::after {
+        display: none;
+      }
+
+      .cta-box {
+        padding: 48px 24px;
+      }
+
+      section {
+        padding: 72px 0;
+      }
+
+      .hero {
+        padding: 110px 0 60px;
+        min-height: auto;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .footer-links {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .marquee-item {
+        font-size: 0.8rem;
+        padding: 0 20px;
+      }
+
+      .promo-box {
+        padding: 36px 28px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 16px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        justify-content: center;
+        width: 100%;
+      }
+
+      .hero-stats {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .cta-actions {
+        flex-direction: column;
+      }
+
+      .cta-actions .btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .game-card {
+        padding: 28px 22px;
+      }
+
+      .price-card {
+        padding: 28px 22px;
+      }
+
+      .infra-card {
+        padding: 28px 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ХЕДЕР -->
+  <header class="header" id="header">
+    <div class="container header-inner">
+      <a href="#" class="logo">
+        <div class="logo-icon">🎯</div>
+        РТИ <span>КЛУБ</span>
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#games">Игры</a>
+        <a href="#pricing">Тарифы</a>
+        <a href="#infra">Инфраструктура</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+
+      <a href="tel:+73432130513" class="header-phone">
+        <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        <span>+7 (343) 213-05-13</span>
+      </a>
+
+      <button class="burger" id="burger" aria-label="Меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-accent-line"></div>
+    <div class="hero-accent-line-2"></div>
+
+    <div class="container hero-content">
+      <div class="hero-badge reveal">
+        <span class="dot"></span>
+        Рядом с центром Екатеринбурга
+      </div>
+
+      <h1 class="reveal reveal-delay-1">
+        ТАКТИЧЕСКИЕ ИГРЫ<br>
+        <span class="accent">БЕЗ КОМПРОМИССОВ</span>
+      </h1>
+
+      <p class="hero-subtitle reveal reveal-delay-2">
+        Пейнтбол, лазертаг и гидробол на открытой площадке 50×50 метров. 
+        Тёплые беседки с мангалом, бесплатная парковка и акция на день рождения.
+      </p>
+
+      <div class="hero-actions reveal reveal-delay-3">
+        <a href="#pricing" class="btn btn-primary">
+          Смотреть тарифы
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#contacts" class="btn btn-outline">
+          Забронировать
+        </a>
+      </div>
+
+      <div class="hero-stats reveal reveal-delay-3">
+        <div class="hero-stat">
+          <div class="hero-stat-value"><span class="accent">4.8</span></div>
+          <div class="hero-stat-label">рейтинг</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-value">50×50</div>
+          <div class="hero-stat-label">метров площадка</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-value"><span class="accent-orange">3</span></div>
+          <div class="hero-stat-label">вида игр</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- БЕГУЩАЯ СТРОКА -->
+  <div class="marquee">
+    <div class="marquee-inner">
+      <div class="marquee-item">ПЕЙНТБОЛ <span class="star">◆</span></div>
+      <div class="marquee-item">ЛАЗЕРТАГ <span class="star">◆</span></div>
+      <div class="marquee-item">ГИДРОБОЛ <span class="star">◆</span></div>
+      <div class="marquee-item">АКЦИЯ НА ДЕНЬ РОЖДЕНИЯ <span class="star">◆</span></div>
+      <div class="marquee-item">ТЁПЛЫЕ БЕСЕДКИ <span class="star">◆</span></div>
+      <div class="marquee-item">БЕСПЛАТНАЯ ПАРКОВКА <span class="star">◆</span></div>
+      <div class="marquee-item">ПЕЙНТБОЛ <span class="star">◆</span></div>
+      <div class="marquee-item">ЛАЗЕРТАГ <span class="star">◆</span></div>
+      <div class="marquee-item">ГИДРОБОЛ <span class="star">◆</span></div>
+      <div class="marquee-item">АКЦИЯ НА ДЕНЬ РОЖДЕНИЯ <span class="star">◆</span></div>
+      <div class="marquee-item">ТЁПЛЫЕ БЕСЕДКИ <span class="star">◆</span></div>
+      <div class="marquee-item">БЕСПЛАТНАЯ ПАРКОВКА <span class="star">◆</span></div>
+    </div>
+  </div>
+
+  <!-- ИГРЫ -->
+  <section class="games-section" id="games">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Виды игр</div>
+        <div class="divider-stripe"></div>
+        <h2>ТРИ ТАКТИЧЕСКИЕ ДИСЦИПЛИНЫ</h2>
+        <p>Каждый найдёт свой формат: от классического пейнтбола до безопасного лазертага и динамичного гидробола.</p>
+      </div>
+
+      <div class="games-grid">
+        <div class="game-card reveal">
+          <div class="game-icon olive">🎯</div>
+          <div class="game-tag olive">От 14 лет</div>
+          <h3>ПЕЙНТБОЛ</h3>
+          <p>Классический вариант с маркерами Tippmann и шарами с краской. Подходит для взрослых и подростков от 14 лет. Драйв, тактика и незабываемые эмоции.</p>
+        </div>
+
+        <div class="game-card orange reveal reveal-delay-1">
+          <div class="game-icon orange">🔫</div>
+          <div class="game-tag orange">От 6 лет</div>
+          <h3>ЛАЗЕРТАГ</h3>
+          <p>Безопасный бесконтактный бой на лазерном оружии с электронными датчиками на голове. Идеален для детей, девушек и семейных праздников — полностью отсутствуют болевые ощущения.</p>
+        </div>
+
+        <div class="game-card reveal reveal-delay-2">
+          <div class="game-icon olive">💧</div>
+          <div class="game-tag olive">Без синяков</div>
+          <h3>ГИДРОБОЛ</h3>
+          <p>Альтернатива для тех, кто хочет динамику пейнтбола, но без синяков — стрельба ведётся мягкими гидрогелевыми шариками. Отличный выбор для смешанных компаний.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ТАРИФЫ -->
+  <section class="pricing-section" id="pricing">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label orange">Актуальные тарифы</div>
+        <div class="divider-stripe orange"></div>
+        <h2>ЦЕНЫ ЗА ЧЕЛОВЕКА</h2>
+        <p>Стоимость зависит от длительности игры. Чем дольше — тем выгоднее.</p>
+      </div>
+
+      <div class="pricing-grid">
+        <div class="price-card featured reveal">
+          <div class="price-header">
+            <div class="price-icon olive">🎯</div>
+            <h3>ПЕЙНТБОЛ</h3>
+          </div>
+          <div class="price-list">
+            <div class="price-row">
+              <span class="price-time">1 час</span>
+              <span class="price-value">1 000 ₽</span>
+            </div>
+            <div class="price-row">
+              <span class="price-time">2 часа</span>
+              <span class="price-value">1 300 ₽</span>
+            </div>
+            <div class="price-row">
+              <span class="price-time">2.5 часа</span>
+              <span class="price-value">1 500 ₽</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="price-card reveal reveal-delay-1">
+          <div class="price-header">
+            <div class="price-icon orange">🔫</div>
+            <h3>ЛАЗЕРТАГ</h3>
+          </div>
+          <div class="price-list">
+            <div class="price-row">
+              <span class="price-time">1 час</span>
+              <span class="price-value">800 ₽</span>
+            </div>
+            <div class="price-row">
+              <span class="price-time">1.5 часа</span>
+              <span class="price-value">900 ₽</span>
+            </div>
+            <div class="price-row">
+              <span class="price-time">2 часа</span>
+              <span class="price-value">1 000 ₽</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="price-card orange reveal reveal-delay-2">
+          <div class="price-header">
+            <div class="price-icon olive">💧</div>
+            <h3>ГИДРОБОЛ</h3>
+          </div>
+          <div class="price-list">
+            <div class="price-row">
+              <span class="price-time">1 час</span>
+              <span class="price-value">800 ₽</span>
+            </div>
+            <div class="price-row">
+              <span class="price-time">2 часа</span>
+              <span class="price-value">1 400 ₽</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- АКЦИЯ -->
+      <div class="promo-box reveal">
+        <div class="promo-emoji">🎁</div>
+        <div class="promo-content">
+          <h3>АКЦИЯ НА ДЕНЬ РОЖДЕНИЯ / МАЛЬЧИШНИК</h3>
+          <p>При заказе игры на компанию от <span class="highlight">10 человек</span> именинник (или виновник торжества) играет <span class="highlight">БЕСПЛАТНО</span>.</p>
+          <p>А ещё мы дарим <span class="highlight">2 часа аренды тёплой беседки с мангалом</span>!</p>
+        </div>
+        <div class="promo-cta">
+          <a href="tel:+73432130513" class="btn btn-orange">
+            Забронировать
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ИНФРАСТРУКТУРА -->
+  <section class="infra-section" id="infra">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Инфраструктура</div>
+        <div class="divider-stripe"></div>
+        <h2>ВСЁ ДЛЯ КОМФОРТНОГО ОТДЫХА</h2>
+        <p>Продуманное пространство для игр и праздников — от профессиональной площадки до уютных беседок.</p>
+      </div>
+
+      <div class="infra-grid">
+        <div class="infra-card reveal">
+          <div class="infra-icon olive">🏟️</div>
+          <h3>ОТКРЫТАЯ ПЛОЩАДКА 50×50</h3>
+          <p>Стилизована под спортивные тактические поля. Искусственные и естественные укрытия, приближенные к профессиональным аренам. Оборудована искусственным освещением — играть можно и в тёмное время суток.</p>
+        </div>
+
+        <div class="infra-card orange reveal reveal-delay-1">
+          <div class="infra-icon orange">🏡</div>
+          <h3>ТЁПЛЫЕ БЕСЕДКИ С МАНГАЛОМ</h3>
+          <p>Уютные отапливаемые беседки с мангальными зонами, где можно устроить фуршет или шашлыки после матча. Тёплые раздевалки для комфорта гостей.</p>
+        </div>
+
+        <div class="infra-card orange reveal reveal-delay-2">
+          <div class="infra-icon orange">🅿️</div>
+          <h3>БЕСПЛАТНАЯ ПАРКОВКА</h3>
+          <p>Просторная бесплатная парковка для гостей клуба. Удобный заезд на автомобиле осуществляется со стороны улицы Рижской.</p>
+        </div>
+
+        <div class="infra-card reveal reveal-delay-3">
+          <div class="infra-icon olive">🐕</div>
+          <h3>PET-FRIENDLY</h3>
+          <p>На территорию клуба разрешено приходить со своими собаками. Ваш питомец тоже может стать частью праздника!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- КОНТАКТЫ -->
+  <section class="contacts-section" id="contacts">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Контакты и локация</div>
+        <div class="divider-stripe"></div>
+        <h2>КАК НАС НАЙТИ</h2>
+        <p>Клуб работает круглый год без выходных и праздников, но по предварительной записи.</p>
+      </div>
+
+      <div class="contacts-grid">
+        <div class="contact-card reveal">
+          <div class="contact-card-icon olive">📍</div>
+          <h4>АДРЕС</h4>
+          <p>г. Екатеринбург, ул. 8 Марта, 210<br>Чкаловский район / Вторчермет<br>Заезд со стороны ул. Рижской</p>
+        </div>
+
+        <div class="contact-card orange reveal reveal-delay-1">
+          <div class="contact-card-icon orange">📞</div>
+          <h4>ТЕЛЕФОНЫ</h4>
+          <p>
+            <a href="tel:+73432130513">+7 (343) 213-05-13</a><br>
+            <a href="tel:+79045410864">+7 (904) 541-08-64</a>
+          </p>
+        </div>
+
+        <div class="contact-card reveal reveal-delay-2">
+          <div class="contact-card-icon olive">🕐</div>
+          <h4>РЕЖИМ РАБОТЫ</h4>
+          <p>Круглый год без выходных<br>Строго по предварительной записи</p>
+        </div>
+      </div>
+
+      <div class="contacts-grid">
+        <div class="contact-card orange reveal">
+          <div class="contact-card-icon orange">🌐</div>
+          <h4>ОФИЦИАЛЬНЫЕ ПЛАТФОРМЫ</h4>
+          <p>Сценарии, фотографии с игр и анонсы — в сообществе ВКонтакте и на официальном сайте клуба РТИ.</p>
+        </div>
+
+        <div class="contact-card reveal reveal-delay-1">
+          <div class="contact-card-icon olive">⭐</div>
+          <h4>РЕЙТИНГ</h4>
+          <p>4.8 из 5 — один из самых популярных и близких к центру Екатеринбурга клубов активного отдыха.</p>
+        </div>
+
+        <div class="contact-card orange reveal reveal-delay-2">
+          <div class="contact-card-icon orange">🎯</div>
+          <h4>БРОНИРОВАНИЕ</h4>
+          <p>Звоните — подберём удобное время и формат игры под вашу компанию.</p>
+        </div>
+      </div>
+
+      <div class="map-wrapper reveal">
+        <div class="map-placeholder">
+          <div class="emoji">🗺️</div>
+          <p>Интерактивная карта — ул. 8 Марта, 210</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-box reveal">
+        <h2>ГОТОВЫ К ИГРЕ?</h2>
+        <p>Забронируйте площадку для дня рождения, корпоратива или дружеской встречи. Мы подберём формат под ваш запрос.</p>
+        <div class="cta-actions">
+          <a href="tel:+73432130513" class="btn btn-primary">
+            <svg viewBox="0 0 24 24" width="16" height="16"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" fill="currentColor"/></svg>
+            Позвонить сейчас
+          </a>
+          <a href="#" class="btn btn-orange">
+            Написать ВКонтакте
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ФУТЕР -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-copy">
+        © 2025 Пейнтбольно-лазертаг клуб «РТИ». Активный отдых в Екатеринбурге.
+      </div>
+      <div class="footer-links">
+        <a href="#games">Игры</a>
+        <a href="#pricing">Тарифы</a>
+        <a href="#infra">Инфраструктура</a>
+        <a href="#contacts">Контакты</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ---------- ХЕДЕР ПРИ СКРОЛЛЕ ----------
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // ---------- БУРГЕР-МЕНЮ ----------
+    const burger = document.getElementById('burger');
+    const navLinks = document.getElementById('navLinks');
+
+    burger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+      });
+    });
+
+    // ---------- АНИМАЦИИ ПРИ СКРОЛЛЕ ----------
+    const revealElements = document.querySelectorAll('.reveal');
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: '0px 0px -60px 0px'
+    });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // ---------- ПЛАВНЫЙ СКРОЛЛ ДЛЯ ЯКОРЕЙ ----------
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const target = document.querySelector(targetId);
+        if (target) {
+          e.preventDefault();
+          const headerHeight = header.offsetHeight;
+          const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+          
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
